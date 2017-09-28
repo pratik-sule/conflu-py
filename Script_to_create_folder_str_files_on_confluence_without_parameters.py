@@ -18,10 +18,10 @@ folder_path = '' #Edit folder path here, replace \ with \\
 
 
 #Confluence site details
-site_URL = "https://confluence.cms.gov"
+site_URL = "" #Confluence url here
 username = "" #Edit username here
 pwd = "" #Edit password here
-spacekey = "CCOSOA" #Specific to the Opera CMS Confluence Space
+spacekey = "" #Confluence spacekey here (the characters between / after "/display/" when you click on the target space in the browser
 
 #Logging into Confluence
 server = xmlrpc.client.ServerProxy(site_URL + "/rpc/xmlrpc")
@@ -30,13 +30,13 @@ token = server.confluence2.login(username, pwd)
 #Set the parent page name under which you want the new pages to be
 #created
 
-root_parent_name = "CSR Recon"
+root_parent_name = "" #Edit to have the name of the page under which the directory structure needs to be replicated
 
 root_parent_page = server.confluence2.getPage(token, spacekey, root_parent_name) 
 
-print(root_parent_page)
+print(root_parent_page) 
 
-blank_page = {'space': spacekey,'title': '','content':"",'parentId': ''}
+#Content for the pages to be created, child list shows all the child pages on the created page, similarly for the file list
 
 child_list_content = """<p><ac:structured-macro ac:macro-id="985848d0-e19e-4d85-bec4-1189aa5f45a2" ac:name="children" ac:schema-version="2"/></p>
                      """
